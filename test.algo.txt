@@ -1,0 +1,40 @@
+PROCEDURE read-vect(n:INTEGER,VAR v1,v2: ARRAY_OF INTEGER)
+VAR
+   set_declarations
+BEGIN
+   FOR i FROM 0 TO  n  DO
+    FOR j FROM 0 TO n   DO
+        read(v1[i]);
+        read(v2[j]);
+    END_FOR
+        
+    END_FOR
+END
+
+PROCEDURE vect-orto (ps:INTEGER)
+VAR
+BEGIN
+    IF (ps=0) THEN
+       write("les deux vecteurs sont orthogonaux");
+    END_IF
+END
+PROCEDURE produit-scalaire(ps,n:INTEGER;v1,v2:ARRAY_OF INTEGER)
+VAR
+   i:INTEGER:=0;
+BEGIN
+   FOR i FROM 0 TO n   DO
+   ps:=ps+v1[i]*v2[i];
+      
+   END_FOR
+END
+
+ALGORITHM dot_product
+VAR
+   l,ps:INTEGER;
+   v1,v2 : ARRAY_OF INTEGER [50];
+BEGIN
+  read(l);
+   read-vect(l,v1,v2);
+  produit-scalaire(ps,l,v1,v2);
+   vect-orto(l);
+END
